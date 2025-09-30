@@ -1,0 +1,163 @@
+:root {
+  --dark-cyan: hsl(185, 75%, 39%);
+  --very-dark-desaturated-blue: hsl(229, 23%, 23%);
+  --dark-grayish-blue: hsl(227, 10%, 46%);
+  --dark-gray: hsl(0, 0%, 59%);
+  --font-family: "Kumbh Sans", sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-family);
+  font-size: 18px;
+  background-color: var(--dark-cyan);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  overflow: hidden;
+  position: center;
+}
+
+.svg-top {
+  position: absolute;
+  top: -90px;
+  left: -100px;
+  width: 400px;
+  height: 400px;
+  z-index: 0; /* Derrière tout sauf le fond général */
+  opacity: 0.3; /* Opacité de l'image SVG */
+}
+
+.svg-bottom {
+  position: absolute;
+  bottom: -100px;
+  right: -200px;
+  width: 500px;
+  height: 500px;
+  z-index: 0; /* Derrière tout sauf le fond général */
+  opacity: 0.7; /* Opacité de l'image SVG */
+}
+
+.card {
+  background: white;
+  border-radius: 15px;
+  overflow: hidden;
+  width: 100%;
+  max-width: 325px;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  position: relative;
+  z-index: 1; /* Devant les SVG */
+}
+
+.card-header {
+  background: var(--dark-cyan);
+  height: 140px;
+  background-image: url("assets/images/bg-pattern-card.svg");
+  background-size: cover;
+}
+
+.profile-picture {
+  width: 105px;
+  height: 105px;
+  border-radius: 50%;
+  background: var(--dark-gray);
+  margin: -50px auto -5px;
+  border: 5px solid white;
+}
+
+.card-body {
+  padding: 20px;
+}
+
+.card-body h1 {
+  font-size: 1.05rem;
+  color: var(--very-dark-desaturated-blue);
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.card-body h1 span {
+  font-size: 1.2rem;
+  color: var(--dark-grayish-blue);
+  font-weight: 400;
+  margin-left: 5px; /* Ajout d'espace avant le "26" */
+}
+
+.card-body p {
+  color: var(--dark-grayish-blue);
+  margin: 10px 0 20px;
+  font-size: 0.9rem;
+}
+
+.card-body hr {
+  border: none;
+  border-top: 1px solid rgba(0, 0, 0, 0.9); /* Ligne avec opacité */
+  margin-bottom: 20px; /* Espace entre la ligne et les stats */
+  width: 120%; /* Étend la ligne sur toute la largeur */
+  opacity: 0.1; /* Opacité de la ligne */
+  transform: translateX(-20px); /* Compense le padding de .card-body */
+}
+
+.stats {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 20px; /* Ajout de marges latérales pour les stats */
+}
+
+.stats div {
+  text-align: center;
+}
+
+.stats h2 {
+  font-size: 1.2rem;
+  color: var(--very-dark-desaturated-blue);
+  font-weight: 700;
+  margin-bottom: -5px; /* Ajout d'espace entre le nombre et le texte */
+  opacity: 0.9;
+}
+
+.stats p {
+  font-size: 0.7rem;
+  color: var(--dark-gray);
+  letter-spacing: 1px;
+  margin-bottom: 5px; /* Ajout d'espace entre le nombre et le texte */
+}
+
+@media (min-width: 600px) {
+  body {
+    font-size: 20px; /* Augmentation de la taille de police pour les écrans plus larges */
+    transform: scale(
+      1.2
+    ); /* Légère augmentation de la taille de l'ensemble du contenu */
+  }
+  .card {
+    width: 100%;
+    max-width: 350px; /* Augmentation de la largeur maximale de la carte */
+  }
+  .svg-top {
+    position: absolute;
+    top: -250px;
+    left: -170px;
+    width: 700px;
+    height: 700px;
+    opacity: 2; /* Opacité de l'image SVG */
+    transform: scale(1.2); /* Légère augmentation de la taille de l'image SVG */
+  }
+
+  .svg-bottom {
+    position: absolute;
+    bottom: -350px;
+    right: -150px;
+    width: 700px;
+    height: 700px;
+    opacity: 2; /* Opacité de l'image SVG */
+    transform: scale(1.2); /* Légère augmentation de la taille de l'image SVG */
+  }
+}
